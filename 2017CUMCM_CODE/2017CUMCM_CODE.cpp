@@ -69,48 +69,48 @@ int BFS(int start, int end) {
     return 0;
 }
 
-int dinic(int start, int end) {
-    int res = 0;
-    int top;
-    int stack[MAXN]; // stack is the stack, which stores the current augmentation path
-    int cur[MAXN];  // store the successor of the current point
-    while (BFS(start, end)) {
-        memcpy(cur, head, sizeof(head));
-        int u = start;
-        top = 0;
-        while (1) {
-            if (u == end) {
-                int min = INF;
-                int loc;
-                for (int i = 0; i < top; i++)
-                    if (min > edge[stack[i]].cap) {
-                        min = edge[stack[i]].cap;
-                        loc = i;
-                    }
-                for (int i = 0; i < top; i++) {
-                    edge[stack[i]].cap -= min;
-                    edge[stack[i] ^ 1].cap += min;
-                }
-                res += min;
-                top = loc;
-                u = edge[stack[top]].from;
-            }
-            for (int i = cur[u]; i != -1; cur[u] = i = edge[i].next)
-                if (edge[i].cap != 0 && dep[u] + 1 == dep[edge[i].to])
-                    break;
-            if (cur[u] != -1) {
-                stack[top++] = cur[u];
-                u = edge[cur[u]].to;
-            }
-            else {
-                if (top == 0)break;
-                dep[u] = -1;
-                u = edge[stack[--top]].from;
-            }
-        }
-    }
-    return res;
-}
+//int dinic(int start, int end) {
+//    int res = 0;
+//    int top;
+//    int stack[MAXN]; // stack is the stack, which stores the current augmentation path
+//    int cur[MAXN];  // store the successor of the current point
+//    while (BFS(start, end)) {
+//        memcpy(cur, head, sizeof(head));
+//        int u = start;
+//        top = 0;
+//        while (1) {
+//            if (u == end) {
+//                int min = INF;
+//                int loc;
+//                for (int i = 0; i < top; i++)
+//                    if (min > edge[stack[i]].cap) {
+//                        min = edge[stack[i]].cap;
+//                        loc = i;
+//                    }
+//                for (int i = 0; i < top; i++) {
+//                    edge[stack[i]].cap -= min;
+//                    edge[stack[i] ^ 1].cap += min;
+//                }
+//                res += min;
+//                top = loc;
+//                u = edge[stack[top]].from;
+//            }
+//            for (int i = cur[u]; i != -1; cur[u] = i = edge[i].next)
+//                if (edge[i].cap != 0 && dep[u] + 1 == dep[edge[i].to])
+//                    break;
+//            if (cur[u] != -1) {
+//                stack[top++] = cur[u];
+//                u = edge[cur[u]].to;
+//            }
+//            else {
+//                if (top == 0)break;
+//                dep[u] = -1;
+//                u = edge[stack[--top]].from;
+//            }
+//        }
+//    }
+//    return res;
+//}
 
 int m;
 //double getPrice(const Ans& ans, const Task& task) {
