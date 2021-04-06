@@ -121,6 +121,15 @@ int m;
 //    return ret;
 //}
 
+double myrand(int range) {
+    return double(rand() % range) / range;
+}
+
+double Countsatisfaction() {
+    // A function to calculate user satisfaction, because the two models have different performance here, so leave this blank
+    double m = 0;
+    return m;
+}
 
 
 int main()
