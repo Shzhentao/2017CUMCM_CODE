@@ -72,8 +72,8 @@ int BFS(int start, int end) {
 int dinic(int start, int end) {
     int res = 0;
     int top;
-    int stack[MAXN];//stack 为栈，存储当前增广路
-    int cur[MAXN];//存储当前点的后继
+    int stack[MAXN]; // stack is the stack, which stores the current augmentation path
+    int cur[MAXN];  // store the successor of the current point
     while (BFS(start, end)) {
         memcpy(cur, head, sizeof(head));
         int u = start;
