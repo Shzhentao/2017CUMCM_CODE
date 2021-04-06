@@ -2,6 +2,37 @@
 //
 
 #include <iostream>
+#include<stdio.h>
+#include<string.h>
+#include<algorithm>
+#include<iostream>
+#include<vector>
+using namespace std;
+
+// Maximum flow algorithm
+const int INF = 0x3f3f3f3f;
+const int MAXN = 100100; // Maximum number of points
+const int MAXM = 200100; // Maximum number of edges
+
+struct Node {
+    int from = 0;
+    int to = 0;
+    int next = 0;
+    int cap = 0;
+};
+
+Node edge[MAXM];
+
+int tol = 0;
+int dep[MAXN]; // dep is the level of points
+int head[MAXN];
+
+int n = 0;
+void init() {
+    tol = 0;
+    memset(head, -1, sizeof(head));
+}
+
 
 int main()
 {
