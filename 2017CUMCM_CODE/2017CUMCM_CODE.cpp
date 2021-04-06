@@ -113,13 +113,13 @@ int dinic(int start, int end) {
 }
 
 int m;
-double getPrice(const Ans& ans, const Task& task) {
-    double ret = 70;
-    for (int i = 0; i < 3; i++) {
-        ret += ans[i].a[i] * task[i].p[i];
-    }
-    return ret;
-}
+//double getPrice(const Ans& ans, const Task& task) {
+//    double ret = 70;
+//    for (int i = 0; i < 3; i++) {
+//        ret += ans[i].a[i] * task[i].p[i];
+//    }
+//    return ret;
+//}
 
 
 
